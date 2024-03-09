@@ -60,11 +60,11 @@ class BaseModel:
         dictionary created_at, updated_at must be converted to
         string object in ISO format
         """
-        to _dictformat = {}
+        to_dictformat = {}
         # Adding a class key to identify class name
         # of the instance attribute
 
-        to dictformart["__class__"] = self.__class__.__name__
+        to_dictformart["__class__"] = self.__class__.__name__
         for key, val in self.__dict__.items():
             if isinstance(val, datetime):
                 to_dictformat[key] = val.isoformat()
