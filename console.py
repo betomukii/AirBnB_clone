@@ -25,6 +25,16 @@ class HBNBCommand(cmd.Cmd):
                 arg = comnd[0] + ' ' + cls[0]
         return arg
 
+    def do_count(self, cls_name):
+        """ Counts instances of class """
+        count = 0
+        all_objs = storage.all()
+        for k, v in all_objs.items():
+            clss = k.split('.')
+            if clss[0] == cls_name:
+                count += 1
+        print(count)
+
     def emptyline(self):
         """do nothing when line is emty"""
         pass
