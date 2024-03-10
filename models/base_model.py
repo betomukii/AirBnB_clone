@@ -43,7 +43,7 @@ class BaseModel:
         str representation
         """
 
-        return f"[{self.__class__.__name}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """
@@ -64,7 +64,7 @@ class BaseModel:
         # Adding a class key to identify class name
         # of the instance attribute
 
-        to_dictformart["__class__"] = self.__class__.__name__
+        to_dictformat["__class__"] = self.__class__.__name__
         for key, val in self.__dict__.items():
             if isinstance(val, datetime):
                 to_dictformat[key] = val.isoformat()
